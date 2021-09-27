@@ -1,0 +1,472 @@
+import xlrd
+from xlwt import Workbook
+import tkinter as tk
+window = tk.Tk()
+window.title("Hospital Record Management System")
+window.geometry("1350x550")
+# Object Oriented
+
+#xlwt
+wb1 = Workbook()
+Doctor = wb1.add_sheet("Doctor")
+Nurse = wb1.add_sheet("Nurse")
+Patient = wb1.add_sheet("Patient")
+Pharmacist = wb1.add_sheet("Pharmacist")
+Laboratorist = wb1.add_sheet("Laboratorist")
+Accountant = wb1.add_sheet("Accountant")
+Appointments = wb1.add_sheet("Appointments")
+Surgeries = wb1.add_sheet("Surgeries")
+Payments = wb1.add_sheet("Payments")
+Blood_Banks = wb1.add_sheet("Blood_banks")
+Medicines = wb1.add_sheet("Medicine")
+Bed_allotment = wb1.add_sheet("Bed_allotment")
+Birth_report = wb1.add_sheet("Birth_report")
+Death_report = wb1.add_sheet("Death_report")
+Security = wb1.add_sheet("Security")
+
+Security.write(0,0, "AAU")
+Security.write(0,1, "aait")
+
+wb1.save("Hospital Records.xls")
+
+# xlrd
+loc = ("Hospital Records.xls")
+wb = xlrd.open_workbook(loc)
+Doctor1 = wb.sheet_by_index(0)
+Nurse1 = wb.sheet_by_index(1)
+Patient1 = wb.sheet_by_index(2)
+Pharmacist1 = wb.sheet_by_index(3)
+Laboratorist1 = wb.sheet_by_index(4)
+Accountant1 = wb.sheet_by_index(5)
+Appointments1 = wb.sheet_by_index(6)
+Surgeries1 = wb.sheet_by_index(7)
+Payments1 = wb.sheet_by_index(8)
+Blood_Bank1 = wb.sheet_by_index(9)
+Medicines1 = wb.sheet_by_index(10)
+Bed_allotment1 = wb.sheet_by_index(11)
+Birth_report1 = wb.sheet_by_index(12)
+Death_report1 = wb.sheet_by_index(13)
+Security1 = wb.sheet_by_index(14)
+
+
+Patient1.cell_value(0, 0)
+
+# Tkinter
+z = True
+x = True
+y = True
+def access0():
+    global x
+    global z
+    for i in range(1, 9):
+        for j in range(1, 8):
+            label13 = tk.Label(text="                                        ")
+            label13.grid(column=i, row=j)
+    z = False
+    label20 = tk.Label(text="Enter Username: \"AAU\" and password: \"aait\"", font=("Times new roman", 14))
+    label20.grid(column=2, row=1, columnspan=4)
+    label10 = tk.Label(text="Username:", font=("Times new roman", 12), width=10)
+    label10.grid(column=3, row=2)
+    entry1 = tk.Entry()
+    entry1.grid(column=4, row=2)
+    label11 = tk.Label(text="Password:", font=("Times new roman", 12))
+    label11.grid(column=3, row=3)
+    entry2 = tk.Entry()
+    entry2.grid(column=4, row=3)
+    def access00():
+        global x
+        global y
+        if str(entry1.get()) == Security1.cell_value(0, 0) and str(entry2.get()) == Security1.cell_value(0, 1):
+            for i in range(1, 9):
+                for j in range(1, 8):
+                    label13 = tk.Label(text="                                        ")
+                    label13.grid(column=i, row=j)
+            if x == False and y == True:
+                button11 = tk.Button()
+                button11.grid(column=3, row=2)
+                button12 = tk.Button()
+                button12.grid(column=3, row=2)
+                button11.grid_forget()
+                button12.grid_forget()
+            if x == False and y == False:
+                button9 = tk.Button()
+                button9.grid(column=3, row=2)
+                button10 = tk.Button()
+                button10.grid(column=3, row=2)
+                button9.grid_forget()
+                button10.grid_forget()
+            button1.grid_forget()
+            label20.grid_forget()
+            button8.grid_forget()
+            label21 = tk.Label(text="You have now logged into the hospital's Database", font=("Times new roman", 18))
+            label21.grid(column=2, row=2, columnspan=5)
+            def access001():
+                global x
+                global y
+                for i in range(1, 9):
+                    for j in range(1, 8):
+                        label13 = tk.Label(text="                                        ")
+                        label13.grid(column=i, row=j)
+                button8.grid_forget()
+                if x == False and y == False:
+                    pass
+                else:
+                    label21.grid_forget()
+                if x == False:
+                    button11 = tk.Button()
+                    button11.grid(column=3, row=2)
+                    button12 = tk.Button()
+                    button12.grid(column=3, row=2)
+                    button11.grid_forget()
+                    button12.grid_forget()
+                x = False
+                y = False
+                label12 = tk.Label(text="1. Name:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=1)
+                label12 = tk.Label(text="2. Patient Id:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=2)
+                label12 = tk.Label(text="3. Age:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=3)
+                label12 = tk.Label(text="4. Sex:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=4)
+                label12 = tk.Label(text="5. Blood Type:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=5)
+                label12 = tk.Label(text="6. Problem:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=6)
+                label12 = tk.Label(text="7. Address:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=7)
+                label12 = tk.Label(text="8. Phone num:", font=("Times new roman", 12), width=15)
+                label12.grid(column=4, row=1)
+                label12 = tk.Label(text="9. Date of join:", font=("Times new roman", 12), width=15)
+                label12.grid(column=4, row=2)
+                label12 = tk.Label(text="10. Password:", font=("Times new roman", 12), width=15)
+                label12.grid(column=4, row=3)
+                entry19 = tk.Entry()
+                entry19.grid(column=3, row=1)
+                entry20 = tk.Entry()
+                entry20.grid(column=3, row=2)
+                entry21 = tk.Entry()
+                entry21.grid(column=3, row=3)
+                entry22 = tk.Entry()
+                entry22.grid(column=3, row=4)
+                entry23 = tk.Entry()
+                entry23.grid(column=3, row=5)
+                entry24 = tk.Entry()
+                entry24.grid(column=3, row=6)
+                entry25 = tk.Entry()
+                entry25.grid(column=3, row=7)
+                entry26 = tk.Entry()
+                entry26.grid(column=5, row=1)
+                entry27 = tk.Entry()
+                entry27.grid(column=5, row=2)
+                entry28 = tk.Entry()
+                entry28.grid(column=5, row=3)
+                def access0010():
+
+
+                    Patient.write(0, 0, str(entry19.get()))
+                    Patient.write(0, 1, str(entry20.get()))
+                    Patient.write(0, 2, str(entry22.get()))
+                    Patient.write(0, 3, str(entry21.get()))
+                    Patient.write(0, 4, str(entry23.get()))
+                    Patient.write(0, 5, str(entry25.get()))
+                    Patient.write(0, 6, str(entry26.get()))
+                    Patient.write(0, 7, str(entry27.get()))
+                    Patient.write(0, 8, str(entry28.get()))
+                    Patient.write(0, 9, str(entry24.get()))
+                    wb1.save("Hospital Records.xls")
+
+                def list1():
+                    for k in range(Patient1.nrows + 1):
+                        print()
+                        print(Patient1.row_values(k))
+                def access0011():
+                    text1 = tk.Text(window, height=20, width=120)
+                    text1.grid(column=1, row=1, columnspan=8, rowspan=7)
+                    halu = Patient1.cell_value(0, 0)
+                    text1.config(state="normal")
+                    text1.insert(tk.INSERT, halu)
+                    text1.config(state="disabled")
+
+                button9 = tk.Button(text="Add Patient", width=15, bg="darkgrey", command=access0010)
+                button9.grid(column=4, row=4)
+                button10 = tk.Button(text="View Patient List", width=15, bg="darkgrey", command=access0011)
+                button10.grid(column=4, row=5)
+
+
+            def access002():
+                global x
+                global y
+                for i in range(1, 9):
+                    for j in range(1, 8):
+                        label13 = tk.Label(text="                                        ")
+                        label13.grid(column=i, row=j)
+                button8.grid_forget()
+                if x == False and y == False:
+                    pass
+                else:
+                    label21.grid_forget()
+                if x == False:
+                    button9 = tk.Button()
+                    button9.grid(column=3, row=2)
+                    button10 = tk.Button()
+                    button10.grid(column=3, row=2)
+                    button9.grid_forget()
+                    button10.grid_forget()
+                else:
+                    pass
+                x = False
+                y = True
+                label12 = tk.Label(text="1. Name:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=1)
+                label12 = tk.Label(text="2. Doc Id:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=2)
+                label12 = tk.Label(text="3. Age:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=3)
+                label12 = tk.Label(text="4. Sex:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=4)
+                label12 = tk.Label(text="5. Qualificatn:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=5)
+                label12 = tk.Label(text="6. Speciality:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=6)
+                label12 = tk.Label(text="7. Blood Type:", font=("Times new roman", 12), width=10)
+                label12.grid(column=2, row=7)
+                label12 = tk.Label(text="8. Address:", font=("Times new roman", 12), width=10)
+                label12.grid(column=4, row=1)
+                label12 = tk.Label(text="9. Phone num:", font=("Times new roman", 12), width=15)
+                label12.grid(column=4, row=2)
+                label12 = tk.Label(text="10. Date of birth:", font=("Times new roman", 12), width=15)
+                label12.grid(column=4, row=3)
+                label12 = tk.Label(text="11. Date of join:", font=("Times new roman", 12), width=15)
+                label12.grid(column=4, row=4)
+                label12 = tk.Label(text="12. Salary:", font=("Times new roman", 12), width=10)
+                label12.grid(column=4, row=5)
+                label12 = tk.Label(text="13. Working days:", font=("Times new roman", 12), width=10)
+                label12.grid(column=4, row=6)
+                label12 = tk.Label(text="14. Timings:", font=("Times new roman", 12), width=10)
+                label12.grid(column=4, row=7)
+                label12 = tk.Label(text="15. Office num:", font=("Times new roman", 12), width=10)
+                label12.grid(column=6, row=1)
+                label12 = tk.Label(text="16. Password:", font=("Times new roman", 12), width=10)
+                label12.grid(column=6, row=2)
+                entry3 = tk.Entry()
+                entry3.grid(column=3, row=1)
+                entry4 = tk.Entry()
+                entry4.grid(column=3, row=2)
+                entry5 = tk.Entry()
+                entry5.grid(column=3, row=3)
+                entry6 = tk.Entry()
+                entry6.grid(column=3, row=4)
+                entry7 = tk.Entry()
+                entry7.grid(column=3, row=5)
+                entry8 = tk.Entry()
+                entry8.grid(column=3, row=6)
+                entry9 = tk.Entry()
+                entry9.grid(column=3, row=7)
+                entry10 = tk.Entry()
+                entry10.grid(column=5, row=1)
+                entry11 = tk.Entry()
+                entry11.grid(column=5, row=2)
+                entry12 = tk.Entry()
+                entry12.grid(column=5, row=3)
+                entry13 = tk.Entry()
+                entry13.grid(column=5, row=4)
+                entry14 = tk.Entry()
+                entry14.grid(column=5, row=5)
+                entry15 = tk.Entry()
+                entry15.grid(column=5, row=6)
+                entry16 = tk.Entry()
+                entry16.grid(column=5, row=7)
+                entry17 = tk.Entry()
+                entry17.grid(column=7, row=1)
+                entry18 = tk.Entry()
+                entry18.grid(column=7, row=2)
+                button11 = tk.Button(text="Add Doctor", width=15, bg="darkgrey")
+                button11.grid(column=6, row=3)
+                button12 = tk.Button(text="View Doctor List", width=15, bg="darkgrey")
+                button12.grid(column=6, row=4)
+            labela = tk.Label(text="Admin", bg="#60a1f0")
+            labela.grid(column=0, row=1, pady=10, ipadx=50)
+            button2 = tk.Button(text="Patient", bg="darkgrey", command=access001)
+            button2.grid(column=0, row=2, pady=10, ipadx=50)
+            button3 = tk.Button(text="Doctor", bg="darkgrey", command=access002)
+            button3.grid(column=0, row=3, pady=10, ipadx=50)
+            button4 = tk.Button(text="Nurse", bg="darkgrey")
+            button4.grid(column=0, row=4, pady=10, ipadx=52.5)
+            button5 = tk.Button(text="Laboratorist", bg="darkgrey")
+            button5.grid(column=0, row=5, pady=10, ipadx=37.5)
+            button6 = tk.Button(text="Pharmacist", bg="darkgrey")
+            button6.grid(column=0, row=6, pady=10, ipadx=39.5)
+            button7 = tk.Button(text="Accountant", bg="darkgrey")
+            button7.grid(column=0, row=7, padx=10, pady=10, ipadx=37.5)
+            button7 = tk.Button(text="Appointments", bg="darkgrey")
+            button7.grid(column=1, row=8, padx=10, pady=10, ipadx=27.5)
+            button7 = tk.Button(text="Surgeries", bg="darkgrey")
+            button7.grid(column=2, row=8, padx=10, pady=10, ipadx=27.5)
+            button7 = tk.Button(text="Payments", bg="darkgrey")
+            button7.grid(column=3, row=8, padx=10, pady=10, ipadx=27.5)
+            button7 = tk.Button(text="Blood Bank", bg="darkgrey")
+            button7.grid(column=4, row=8, padx=10, pady=10, ipadx=27.5)
+            button7 = tk.Button(text="Medicines", bg="darkgrey")
+            button7.grid(column=5, row=8, padx=10, pady=10, ipadx=27.5)
+            button7 = tk.Button(text="Bed allotment", bg="darkgrey")
+            button7.grid(column=6, row=8, padx=10, pady=10, ipadx=27.5)
+            button7 = tk.Button(text="Birth report", bg="darkgrey")
+            button7.grid(column=7, row=8, padx=10, pady=10, ipadx=27.5)
+            button7 = tk.Button(text="Death report", bg="darkgrey")
+            button7.grid(column=8, row=8, padx=10, pady=10, ipadx=27.5)
+
+        else:
+            label12 = tk.Label(text="Incorrect Password")
+            label12.grid(column=5, row=4)
+    button8 = tk.Button(text="Login ", bg="darkgrey", height=1, command=access00)
+    button8.grid(column=4, row=4, pady=10, ipadx=40)
+def access1():
+    global x
+    for i in range(1, 9):
+        for j in range(1, 8):
+            label13 = tk.Label(text="                                        ")
+            label13.grid(column=i, row=j)
+    label20.grid_forget()
+    label10 = tk.Label(text="Patient Id:", font=("Times new roman", 12), width=15)
+    label10.grid(column=3, row=2)
+    entry1 = tk.Entry(width=15)
+    entry1.grid(column=4, row=2)
+    label11 = tk.Label(text="Password:", font=("Times new roman", 12), width=15)
+    label11.grid(column=3, row=3)
+    entry2 = tk.Entry(width=15)
+    entry2.grid(column=4, row=3)
+    button1 = tk.Button(text="Login", bg="darkgrey")
+    button1.grid(column=4, row=4, pady=10, ipadx=40)
+def access2():
+    global x
+    global z
+    for i in range(1, 9):
+        for j in range(1, 8):
+            label13 = tk.Label(text="                                        ")
+            label13.grid(column=i, row=j)
+    if z == False:
+        label20.grid_forget()
+    label10 = tk.Label(text="Doc Id:", font=("Times new roman", 12), width=15)
+    label10.grid(column=3, row=2)
+    entry1 = tk.Entry(width=15)
+    entry1.grid(column=4, row=2)
+    label11 = tk.Label(text="Password:", font=("Times new roman", 12), width=15)
+    label11.grid(column=3, row=3)
+    entry2 = tk.Entry(width=15)
+    entry2.grid(column=4, row=3)
+    button1 = tk.Button(text="Login", bg="darkgrey")
+    button1.grid(column=4, row=4, pady=10, ipadx=40)
+def access3():
+    global x
+    global z
+    for i in range(1, 9):
+        for j in range(1, 8):
+            label13 = tk.Label(text="                                        ")
+            label13.grid(column=i, row=j)
+    if z == False:
+        label20.grid_forget()
+    label10 = tk.Label(text="Nurse Id:", font=("Times new roman", 12), width=15)
+    label10.grid(column=3, row=2)
+    entry1 = tk.Entry(width=15)
+    entry1.grid(column=4, row=2)
+    label11 = tk.Label(text="Password:", font=("Times new roman", 12), width=15)
+    label11.grid(column=3, row=3)
+    entry2 = tk.Entry(width=15)
+    entry2.grid(column=4, row=3)
+    button1 = tk.Button(text="Login", bg="darkgrey")
+    button1.grid(column=4, row=4, pady=10, ipadx=40)
+def access4():
+    global x
+    global z
+    for i in range(1, 9):
+        for j in range(1, 8):
+            label13 = tk.Label(text="                                        ")
+            label13.grid(column=i, row=j)
+    if z == False:
+        label20.grid_forget()
+    label10 = tk.Label(text="Lab.t Id:", font=("Times new roman", 12), width=15)
+    label10.grid(column=3, row=2)
+    entry1 = tk.Entry(width=15)
+    entry1.grid(column=4, row=2)
+    label11 = tk.Label(text="Password:", font=("Times new roman", 12), width=15)
+    label11.grid(column=3, row=3)
+    entry2 = tk.Entry(width=15)
+    entry2.grid(column=4, row=3)
+    button1 = tk.Button(text="Login", bg="darkgrey")
+    button1.grid(column=4, row=4, pady=10, ipadx=40)
+def access5():
+    global x
+    global z
+    for i in range(1, 9):
+        for j in range(1, 8):
+            label13 = tk.Label(text="                                        ")
+            label13.grid(column=i, row=j)
+    if z == False:
+        label20.grid_forget()
+    label10 = tk.Label(text="Pharm.t Id:", font=("Times new roman", 12), width=15)
+    label10.grid(column=3, row=2)
+    entry1 = tk.Entry(width=15)
+    entry1.grid(column=4, row=2)
+    label11 = tk.Label(text="Password:", font=("Times new roman", 12), width=15)
+    label11.grid(column=3, row=3)
+    entry2 = tk.Entry(width=15)
+    entry2.grid(column=4, row=3)
+    button1 = tk.Button(text="Login", bg="darkgrey")
+    button1.grid(column=4, row=4, pady=10, ipadx=40)
+def access6():
+    global x
+    global z
+    for i in range(1, 9):
+        for j in range(1, 8):
+            label13 = tk.Label(text="                                        ")
+            label13.grid(column=i, row=j)
+    if z == False:
+        label20.grid_forget()
+    label10 = tk.Label(text="Acc.t Id:", font=("Times new roman", 12), width=15)
+    label10.grid(column=3, row=2)
+    entry1 = tk.Entry(width=15)
+    entry1.grid(column=4, row=2)
+    label11 = tk.Label(text="Password:", font=("Times new roman", 12), width=15)
+    label11.grid(column=3, row=3)
+    entry2 = tk.Entry(width=15)
+    entry2.grid(column=4, row=3)
+    button1 = tk.Button(text="Login", bg="darkgrey")
+    button1.grid(column=4, row=4, pady=10, ipadx=40)
+
+
+label1 = tk.Label(text="Hospital Record Management System", font=("Times new roman", 16))
+label1.grid(column=2, row=0, columnspan=4)
+label2 = tk.Label(text="               ")
+label2.grid(column=0, row=0, pady=50)
+button1 = tk.Button(text="Admin", bg="darkgrey", command=access0)
+button1.grid(column=0, row=1, pady=10, ipadx=50)
+button2 = tk.Button(text="Patient", bg="darkgrey", command=access1)
+button2.grid(column=0, row=2, pady=10, ipadx=50)
+button3 = tk.Button(text="Doctor", bg="darkgrey", command=access2)
+button3.grid(column=0, row=3, pady=10, ipadx=50)
+button4 = tk.Button(text="Nurse", bg="darkgrey", command=access3)
+button4.grid(column=0, row=4, pady=10, ipadx=52.5)
+button5 = tk.Button(text="Laboratorist", bg="darkgrey", command=access4)
+button5.grid(column=0, row=5, pady=10, ipadx=37.5)
+button6 = tk.Button(text="Pharmacist", bg="darkgrey", command=access5)
+button6.grid(column=0, row=6, pady=10, ipadx=39.5)
+button7 = tk.Button(text="Accountant", bg="darkgrey", command=access6)
+button7.grid(column=0, row=7,padx=10, pady=10, ipadx=37.5)
+button7 = tk.Button(text="Appointments", bg="darkgrey")
+button7.grid(column=1, row=8,padx=10, pady=10, ipadx=27.5)
+button7 = tk.Button(text="Surgeries", bg="darkgrey")
+button7.grid(column=2, row=8,padx=10, pady=10, ipadx=27.5)
+button7 = tk.Button(text="Payments", bg="darkgrey")
+button7.grid(column=3, row=8,padx=10, pady=10, ipadx=27.5)
+button7 = tk.Button(text="Blood Bank", bg="darkgrey")
+button7.grid(column=4, row=8,padx=10, pady=10, ipadx=27.5)
+button7 = tk.Button(text="Medicines", bg="darkgrey")
+button7.grid(column=5, row=8,padx=10, pady=10, ipadx=27.5)
+button7 = tk.Button(text="Bed allotment", bg="darkgrey")
+button7.grid(column=6, row=8,padx=10, pady=10, ipadx=27.5)
+button7 = tk.Button(text="Birth report", bg="darkgrey")
+button7.grid(column=7, row=8,padx=10, pady=10, ipadx=27.5)
+button7 = tk.Button(text="Death report", bg="darkgrey")
+button7.grid(column=8, row=8,padx=10, pady=10, ipadx=27.5)
+window.mainloop()
